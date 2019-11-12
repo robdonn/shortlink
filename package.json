@@ -1,0 +1,11 @@
+{
+  "name": "shortlink",
+  "version": "0.1.0",
+  "description": "A shortlink generator application",
+  "main": "index.js",
+  "author": {
+    "name": "Robert Donnelly",
+    "email": "dev@robdonn.com"
+  },
+  "license": "MIT"
+}
