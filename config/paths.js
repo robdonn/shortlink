@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const resolveApp = (...relativePath) => {
   const appDirectory = fs.realpathSync(process.cwd());
+
   return path.resolve(appDirectory, ...relativePath);
 };
 
@@ -14,10 +15,10 @@ const paths = {
   public: resolveApp('public'),
   publicPath: '/static/',
   client: resolveApp('client'),
-  server: resolveApp('server'),
+  server: resolveApp('server')
 };
 
 module.exports = {
   resolveApp,
-  paths,
+  paths
 };
