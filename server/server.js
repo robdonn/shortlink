@@ -5,6 +5,8 @@ const { clientMiddleware } = require('./middleware/client/clientMiddleware');
 const { redirectMiddleware } = require('./middleware/redirect/redirectMiddleware');
 const { apiRouter } = require('./router/apiRouter');
 
+require('./database/connect');
+
 if (process.env.NODE_ENV === 'development') {
   clientMiddleware(app);
 }
