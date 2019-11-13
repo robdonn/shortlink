@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node server/server.js",
+    "start": "nodemon server/server.js",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -27,14 +27,20 @@
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
+    "@hot-loader/react-dom": "^16.11.0",
     "@types/react": "^16.9.11",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "nodemon": "^1.19.4",
     "prettier": "^1.19.1",
-    "react-hot-loader": "^4.12.17"
+    "react-hot-loader": "^4.12.17",
+    "webpack": "^4.41.2",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
   }
 }

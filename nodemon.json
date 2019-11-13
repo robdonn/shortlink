@@ -1,0 +1,6 @@
+{
+  "ignore": ["client", "config"],
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
