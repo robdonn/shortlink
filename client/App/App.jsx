@@ -1,11 +1,24 @@
 import React, { Fragment, useState } from 'react';
+import { hot } from 'react-hot-loader';
+import validUrl from 'valid-url';
 
-export const App = () => {
-  const [value, setValue] = useState('');
+const AppComponent = () => {
+  const [url, setUrl] = useState('');
+  const [isValid, setIsValid] = useState(false);
   const [shortlink, setShortlink] = useState(null);
 
   const handleChange = e => {
-    setValue(e.target.value);
+    setUrl(e.target.value);
+
+    setShortlink(null);
+
+    if (validUrl.isUri(e.target.value)) {
+      setIsValid(true);
+    } else {
+      if (isValid) {
+        setIsValid(false);
+      }
+    }
   };
 
   const handleSubmit = e => {
@@ -17,7 +30,7 @@ export const App = () => {
       },
       method: 'POST',
       body: JSON.stringify({
-        url: value
+        url
       })
     })
       .then(res => res.json())
@@ -32,13 +45,13 @@ export const App = () => {
 
   return (
     <Fragment>
-      <h1>Shortener</h1>
+      <h1>Shortlink</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Name:
-          <input type="text" name="name" value={value} onChange={handleChange} />
+          URL:
+          <input type="text" name="name" value={url} onChange={handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input disabled={!isValid} type="submit" value="Submit" />
       </form>
       {shortlink && (
         <a href={shortlink} target="_blank" rel="noopener noreferrer">
@@ -48,3 +61,5 @@ export const App = () => {
     </Fragment>
   );
 };
+
+export const App = hot(module)(AppComponent);

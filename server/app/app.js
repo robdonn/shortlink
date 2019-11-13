@@ -22,6 +22,8 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+app.use(express.static(paths.public));
+
 module.exports = {
   app
 };

@@ -16,8 +16,7 @@ const config = {
     publicPath: paths.publicPath
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(), // enable HMR globally
-    new webpack.NoEmitOnErrorsPlugin() // do not emit compiled assets that include errors
+    new webpack.HotModuleReplacementPlugin() // enable HMR globally
   ],
   module: {
     rules: [
