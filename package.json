@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon server/server.js",
+    "start:services": "docker-compose -f docker-compose.services.yml up",
     "lint": "eslint ."
   },
   "dependencies": {
