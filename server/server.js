@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use('/api', apiRouter);
 
-app.get('/:shortUrl', redirectMiddleware);
+app.get('/:shortlink', redirectMiddleware);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));

@@ -1,6 +1,6 @@
 const { Shortlink } = require('../../database/models/Shortlink');
 
-const shorturlNewMiddleware = async (req, res, next) => {
+const shortlinkNewMiddleware = async (req, res, next) => {
   try {
     const { url } = req.body;
 
@@ -21,5 +21,5 @@ const shorturlNewMiddleware = async (req, res, next) => {
 };
 
 module.exports = {
-  shorturlNewMiddleware
+  shortlinkNewMiddleware
 };

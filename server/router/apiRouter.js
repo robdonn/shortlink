@@ -1,10 +1,10 @@
 const { Router } = require('express');
 
-const { shorturlRouter } = require('./shorturlRouter');
+const { shortlinkRouter } = require('./shortlinkRouter');
 
 const apiRouter = Router();
 
-apiRouter.use('/shorturl', shorturlRouter);
+apiRouter.use('/shortlink', shortlinkRouter);
 
 module.exports = {
   apiRouter
