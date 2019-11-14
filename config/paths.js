@@ -9,7 +9,7 @@ const resolveApp = (...relativePath) => {
 
 const paths = {
   root: resolveApp('.'),
-  buildClient: resolveApp('build', process.env.NODE_ENV, 'client'),
+  buildClient: resolveApp('build', 'client'),
   configWebpack: resolveApp('config', 'webpack'),
   dotenv: resolveApp('.env'),
   nodeModules: resolveApp('node_modules'),

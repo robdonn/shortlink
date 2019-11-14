@@ -165,5 +165,5 @@ db.createUser({
 });
 
 seedData.forEach(collection => {
-  db.collection.insert(collection);
+  db.shortlinks.insert(collection);
 });

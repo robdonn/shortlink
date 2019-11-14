@@ -28,6 +28,6 @@ app.use(notFoundErrorHandler);
 app.use(genericErrorHandler);
 app.use(methodNotAllowed);
 
-app.listen(app.get('port'), app.get('host'), () => {
+app.listen(app.get('port'), () => {
   console.log(`Server running at http://${app.get('host')}:${app.get('port')}`);
 });
