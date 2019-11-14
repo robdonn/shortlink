@@ -18,7 +18,8 @@
     "preview:rebuild": "docker-compose -f docker-compose.services.yml -f docker-compose.preview.yml build --no-cache",
     "lint": "eslint .",
     "test:acceptance": "jest --config=config/jest/jest.config.acceptance.js",
-    "test:unit": "jest --config=config/jest/jest.config.unit.js"
+    "test:unit": "jest --config=config/jest/jest.config.unit.js",
+    "test:visual": "jest --config=config/jest/jest.config.visual.js"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
@@ -60,6 +61,7 @@
     "eslint-plugin-react": "^7.16.0",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
+    "jest-image-snapshot": "^2.11.1",
     "mini-css-extract-plugin": "^0.8.0",
     "nodemon": "^1.19.4",
     "postcss-custom-properties": "^9.0.2",
@@ -69,6 +71,7 @@
     "postcss-nested": "^4.2.1",
     "postcss-normalize": "^8.0.1",
     "prettier": "^1.19.1",
+    "puppeteer": "^2.0.0",
     "react-hot-loader": "^4.12.17",
     "rimraf": "^3.0.0",
     "stylelint": "^11.1.1",

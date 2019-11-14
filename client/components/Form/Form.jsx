@@ -9,7 +9,7 @@ export const Form = ({ value, handleChange, handleSubmit, isValid }) => (
       <span className="Form__label-name">URL</span>
       <input
         type="text"
-        name="name"
+        name="URL Input"
         value={value}
         onChange={handleChange}
         className="Form__input"

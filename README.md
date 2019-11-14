@@ -14,6 +14,7 @@
   - [Testing](#testing)
     - [Unit tests](#unit-tests)
     - [Acceptance Tests](#acceptance-tests)
+    - [Visual Regression Tests](#visual-regression-tests)
 - [FAQ](#faq)
   - [Why are Unit and Acceptance tests run separately?](#why-are-unit-and-acceptance-tests-run-separately)
 
@@ -196,6 +197,35 @@ This will run `Jest` with the `jest.config.acceptance.js` configuration. It will
 
 - Test file is located inside a `__tests__` directory.
 - Test file name ends with `.acceptance.test.js` or `.acceptance.test.jsx`
+
+#### Visual Regression Tests
+
+Visual Regression tests can be run using the script:
+
+```sh
+yarn test:visual
+```
+
+This will run `Jest` with the `jest.config.visual.js` configuration. It will run all unit tests in the `client` and `server` directories if they match the criteria:
+
+- Test file is located inside a `__tests__` directory.
+- Test file name ends with `.visual.test.js` or `.visual.test.jsx`
+
+Visual Regression tests use `Puppeteer` to launch a headless browser instance, establish a scenario and take a screenshot of the page or a specific element. It is important in these tests to intercept certain network traffic, such as API calls, that return dynamic content that can result in variations in the visual layout of the page in each test run.
+
+3 browser viewports are available in the global object:
+
+- `mobile`
+- `tablet`
+- `desktop`
+
+```js
+const viewport = global.viewport.mobile;
+
+const browser = await puppeteer.launch({
+  defaultViewport: viewport
+});
+```
 
 ## FAQ
 
