@@ -1,0 +1,24 @@
+.NotFoundPage {
+  &__main {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 960px;
+  }
+
+  &__button {
+    display: block;
+    background: var(--color-secondary);
+    color: var(--color-font-contrast);
+    text-decoration: none;
+    font-size: 1.3em;
+    padding: 0.4em;
+    margin: 0.6em 0;
+    border-radius: 0.6em;
+    width: 300px;
+  }
+}

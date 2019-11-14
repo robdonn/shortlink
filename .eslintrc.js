@@ -1,8 +1,9 @@
 module.exports = {
   env: {
     browser: true,
+    es6: true,
     node: true,
-    jasmine: true
+    jest: true
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
   plugins: ['prettier'],
@@ -17,8 +18,9 @@ module.exports = {
     'linebreak-style': [2, 'unix'],
     camelcase: [2, { properties: 'never' }],
     quotes: [2, 'single', { allowTemplateLiterals: true }],
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error'
+    'react/jsx-uses-react': 2,
+    'react/jsx-uses-vars': 2,
+    'react/no-unescaped-entities': 0
   },
   settings: {
     react: {

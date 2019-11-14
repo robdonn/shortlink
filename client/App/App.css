@@ -1,2 +1,21 @@
-.App {
+@import 'normalize.css';
+
+/* Colours */
+:root {
+  --color-primary: #2f2fa2;
+  --color-primary-dark: #161769;
+  --color-secondary: #f64c72;
+  --color-secondary-dark: #553d67;
+  --color-secondary-light: #f9e2e8;
+  --color-font: #333;
+  --color-font-light: #666;
+  --color-font-contrast: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
