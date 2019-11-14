@@ -1,10 +1,11 @@
+const { paths } = require('../paths');
+
 module.exports = {
-  testMatch: ['**/__tests__/*.unit.test.js?(x)'],
-  roots: [__dirname],
-  rootDir: __dirname,
+  roots: [paths.root],
+  rootDir: paths.root,
   transform: {
     '^.+\\.(js|jsx|mjs)$': require.resolve('babel-jest')
   },
   testPathIgnorePatterns: ['/node_modules/', '/config/', '/coverage/', '/\\.vscode', '/\\.*.js'],
-  setupFiles: [require.resolve('./config/jest/setupEnvironment')]
+  setupFiles: [require.resolve('./setupEnvironment')]
 };
