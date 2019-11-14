@@ -12,7 +12,7 @@ const AppComponent = () => {
 
     setShortlink(null);
 
-    if (validUrl.isUri(e.target.value)) {
+    if (validUrl.isWebUri(e.target.value)) {
       setIsValid(true);
     } else {
       if (isValid) {

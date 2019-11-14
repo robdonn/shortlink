@@ -7,7 +7,7 @@ const ShortlinkSchema = new Schema({
     type: String,
     required: true,
     validate: {
-      validator: value => !!validUrl.isUri(value),
+      validator: value => !!validUrl.isWebUri(value),
       message: props => `Invalid URL provided - "${props.value}"`
     }
   },

@@ -1,6 +1,6 @@
 /* global db */
 
-const data = [
+const seedData = [
   {
     url: 'https://google.com',
     shortlink: 'UL2HOsDj',
@@ -164,6 +164,6 @@ db.createUser({
   ]
 });
 
-data.forEach(collection => {
+seedData.forEach(collection => {
   db.collection.insert(collection);
 });
