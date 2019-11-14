@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { paths } = require('../paths');
 
 const config = {
@@ -16,14 +17,38 @@ const config = {
     publicPath: paths.publicPath
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin() // enable HMR globally
+    new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    })
   ],
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader'
+        oneOf: [
+          {
+            test: /\.jsx?$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader'
+          },
+          {
+            test: /\.css$/,
+            use: [
+              require.resolve('css-hot-loader'),
+              MiniCssExtractPlugin.loader,
+              require.resolve('css-loader'),
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  sourceMap: true,
+                  config: {
+                    path: paths.root
+                  }
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },

@@ -1,6 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { hot } from 'react-hot-loader';
 import validUrl from 'valid-url';
+
+import './App.css';
 
 const AppComponent = () => {
   const [url, setUrl] = useState('');
@@ -44,7 +46,7 @@ const AppComponent = () => {
   };
 
   return (
-    <Fragment>
+    <main className="App">
       <h1>Shortlink</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -58,7 +60,7 @@ const AppComponent = () => {
           {shortlink}
         </a>
       )}
-    </Fragment>
+    </main>
   );
 };
 
