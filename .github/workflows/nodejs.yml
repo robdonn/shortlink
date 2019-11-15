@@ -1,4 +1,4 @@
-name: Node CI
+name: Testing
 
 on: [push]
 
@@ -17,14 +17,23 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Enable Yarn
-      uses: Borales/actions-yarn@v2.0.0
     - name: Install
-      run: |
-        yarn install
-        yarn lint
-        yarn test:unit
-        yarn test:acceptance
-        yarn test:visual
+      run: npm install
+      env:
+        CI: true
+    - name: Lint
+      run: npm run lint
+      env:
+        CI: true
+    - name: Unit Test
+      run: npm run test:unit
+      env:
+        CI: true
+    - name: Acceptance Test
+      run: npm run test:acceptance
+      env:
+        CI: true
+    - name: Visual Regression
+      run: npm run test:visual
       env:
         CI: true
