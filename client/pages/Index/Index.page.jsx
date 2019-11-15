@@ -13,11 +13,13 @@ export const IndexPage = () => {
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
   const [shortlink, setShortlink] = useState(null);
+  const [error, setError] = useState(null);
 
   const handleChange = e => {
     setUrl(e.target.value);
 
     setShortlink(null);
+    setError(null);
 
     if (validUrl.isWebUri(e.target.value)) {
       setIsValid(true);
@@ -39,7 +41,7 @@ export const IndexPage = () => {
         setLoading(false);
       })
       .catch(error => {
-        console.error(error);
+        setError(error);
         setLoading(false);
       });
   };
@@ -53,6 +55,7 @@ export const IndexPage = () => {
           isValid={isValid}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          error={error}
         />
         <Shortlink shortlink={shortlink} loading={loading} />
       </main>

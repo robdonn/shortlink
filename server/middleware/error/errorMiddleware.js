@@ -18,7 +18,8 @@ const methodNotAllowed = (req, res) => {
   });
 };
 
-const genericErrorHandler = (err, req, res) => {
+/* eslint-disable-next-line no-unused-vars */
+const genericErrorHandler = (err, req, res, next) => {
   res.status(err.status || HttpStatus.INTERNAL_SERVER_ERROR).json({
     error: {
       code: err.code || HttpStatus.INTERNAL_SERVER_ERROR,

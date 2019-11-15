@@ -47,4 +47,10 @@
       cursor: not-allowed;
     }
   }
+
+  &__error {
+    height: 1em;
+    color: var(--color-secondary);
+    font-size: 0.8em;
+  }
 }

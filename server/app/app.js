@@ -14,7 +14,9 @@ require('dotenv').config();
 app.set('port', process.env.APP_PORT || 3000);
 app.set('host', process.env.APP_HOST || 'localhost');
 
-app.use(paths.publicPath, express.static(paths.buildClient));
+if (process.env.NODE_ENV !== 'development') {
+  app.use(paths.publicPath, express.static(paths.buildClient));
+}
 
 app.use(cors());
 app.use(helmet());

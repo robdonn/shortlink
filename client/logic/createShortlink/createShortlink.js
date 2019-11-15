@@ -14,7 +14,10 @@ export const createShortlink = url =>
         if (res.shortlink) {
           resolve(`${window.location.href}${res.shortlink}`);
         } else {
-          reject(new Error(res.error));
+          const error = new Error(res.error.message);
+          error.code = res.error.code;
+
+          reject(error);
         }
       })
       .catch(error => {
