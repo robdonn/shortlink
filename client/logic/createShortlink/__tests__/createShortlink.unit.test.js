@@ -21,9 +21,13 @@ describe('createShortlink', () => {
 
   it('should reject if error is returned', async () => {
     const mockResponse = {
-      error: 'Incorrect value'
+      error: {
+        message: 'Incorrect value',
+        code: 200
+      }
     };
     const expectedError = new Error('Incorrect value');
+    expectedError.code = 200;
 
     fetch.once(JSON.stringify(mockResponse));
 
