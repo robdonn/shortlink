@@ -21,6 +21,7 @@
     - [Unit tests](#unit-tests)
     - [Acceptance Tests](#acceptance-tests)
     - [Visual Regression Tests](#visual-regression-tests)
+    - [Further testing](#further-testing)
 - [FAQ](#faq)
   - [Why are Unit and Acceptance tests run separately?](#why-are-unit-and-acceptance-tests-run-separately)
 
@@ -227,7 +228,7 @@ Acceptance tests can be run using the script:
 yarn test:acceptance
 ```
 
-This will run `Jest` with the `jest.config.acceptance.js` configuration. It will run all unit tests in the `client` and `server` directories if they match the criteria:
+This will run `Jest` with the `jest.config.acceptance.js` configuration. It will run all acceptance tests in the `client` and `server` directories if they match the criteria:
 
 - Test file is located inside a `__tests__` directory.
 - Test file name ends with `.acceptance.test.js` or `.acceptance.test.jsx`
@@ -240,7 +241,7 @@ Visual Regression tests can be run using the script:
 yarn test:visual
 ```
 
-This will run `Jest` with the `jest.config.visual.js` configuration. It will run all unit tests in the `client` and `server` directories if they match the criteria:
+This will run `Jest` with the `jest.config.visual.js` configuration. It will run all visual regression tests in the `client` and `server` directories if they match the criteria:
 
 - Test file is located inside a `__tests__` directory.
 - Test file name ends with `.visual.test.js` or `.visual.test.jsx`
@@ -260,6 +261,16 @@ const browser = await puppeteer.launch({
   defaultViewport: viewport
 });
 ```
+
+The examples of Visual Regression testing used in this repository target the development application in the browser, but the ideal usecase of VR testing is in a component library environment such as `Storybook`.
+
+#### Further testing
+
+Time limitations prevented me from adding further testing infrastructures but, given more time and information about the target users, `E2E` tests would be implemented to test full user journies in actual browser environments.
+
+The target user base would be a big factor in which platform to use for running these tests. If the target is just users using the latest browsers then tools like [Cypress](https://github.com/cypress-io/cypress) or [Test Cafe](https://github.com/DevExpress/testcafe) would be the ideal choice as they are very easy to setup and developer friendly. If legacy browsers needed to be supported, such as `Internet Explorer`, then running tests via [Protractor](https://github.com/angular/protractor) and either a [Selenium](https://github.com/SeleniumHQ/selenium) grid or external services like [BrowserStack](https://www.browserstack.com/) would the best choice, although much more complicated to setup and maintain.
+
+I would also introduce integration tests for the API endpoints using tools such as [Supertest](https://github.com/visionmedia/supertest)
 
 ## FAQ
 
