@@ -11,6 +11,12 @@
   - [Features](#features)
     - [Invalid shortlink](#invalid-shortlink)
     - [Link or Copy](#link-or-copy)
+    - [Visit tracking](#visit-tracking)
+  - [Future Features](#future-features)
+    - [Custom shortlink](#custom-shortlink)
+    - [Shortlink expiration](#shortlink-expiration)
+    - [Shortlink details page](#shortlink-details-page)
+    - [Popular shortlink page](#popular-shortlink-page)
   - [Testing](#testing)
     - [Unit tests](#unit-tests)
     - [Acceptance Tests](#acceptance-tests)
@@ -169,6 +175,34 @@ When a user generates a shortlink, they are presented with the a link and a butt
 The link will always open in a new tab so the user does not lose the information.
 
 If the user clicks the button to add the link to their clipboard, a success message is displayed and the button restores itself after 5 seconds in case they need to use it again.
+
+#### Visit tracking
+
+When a user visits the shortlink, the database entry is updated to include a timestamp of the visit as well as incrementing visit counter. This data can be used to provide statistics such as the most popular shortlinks.
+
+### Future Features
+
+There are a number of features that were planned but not implemented due to time constraints.
+
+#### Custom shortlink
+
+The ability for a user to provide their own custom shortlink code when generating a link, e.g. `http://localhost:3000/MyCoolLink99`. This would involve providing a field in the index page form, validation to ensure it matches the schema requirements and server verification to ensure the shortlink code does not already exist.
+
+#### Shortlink expiration
+
+The ability for a user to set an expiration date for their shortlink, or an automated expiration time, so that a shortlink is removed from the database after a set time. Useful for time limited campaigns, or database management.
+
+This feature could also remove database entries that have not been visited for a certain amount of time.
+
+#### Shortlink details page
+
+A page that provides details about a generated shortlink. This page could show graphs related to visit history, as well as edit and delete functionality if user authentication is ever added.
+
+#### Popular shortlink page
+
+A page listing the most visited shortlinks for different periods, e.g. Most visited today, Most visited this month. This page could be used to link to the details page for the different shortlinks, and also as a social page for visitors to explore custom links.
+
+A `private` field could be added to the `Shortlink` database model to omit a shortlink from this list.
 
 ### Testing
 

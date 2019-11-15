@@ -27,6 +27,16 @@ const ShortlinkSchema = new Schema({
     type: Date,
     default: Date.now,
     required: true
+  },
+  visitCount: {
+    type: Number,
+    default: 0,
+    required: true
+  },
+  visits: {
+    type: [Date],
+    default: [],
+    required: true
   }
 });
 
