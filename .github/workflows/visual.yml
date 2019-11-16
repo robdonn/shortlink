@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: List
-        run: ls .
+        run: ls build
       - uses: actions/checkout@v1
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag shortlink --shm-size 512M
