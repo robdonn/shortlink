@@ -9,7 +9,7 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - APP_PORT=3100
+      - PORT=3100
       - DB_ENDPOINT=mongodb://shortlink:shortlink@mongo:27017/shortlink
     ports:
       - 3100:3100
