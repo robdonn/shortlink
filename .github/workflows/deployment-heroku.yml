@@ -31,10 +31,10 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         with:
-          args: container:push -a shortlink shortlink-maker
+          args: container:push -a shortlink-maker shortlink
       - name: release
         uses: actions/heroku@master
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         with:
-          args: container:release -a shortlink shortlink-maker
+          args: container:release -a shortlink-maker shortlink
