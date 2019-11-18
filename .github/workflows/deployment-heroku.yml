@@ -18,10 +18,8 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
-      - uses: actions/checkout@v1
       - name: Build the Docker image
-        run: docker build . --tag shortlink
-      - uses: actions/checkout@master
+        run: docker build . --tag shortlink --shm-size 2gb
       - name: login
         uses: actions/heroku@master
         env:
